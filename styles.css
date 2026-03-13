@@ -80,16 +80,10 @@ button { border: 0; cursor: pointer; }
   padding: 8px 4px;
 }
 .hero-logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 24px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--white);
-  font-size: 32px;
-  font-weight: 900;
-  box-shadow: 0 14px 28px rgba(91,124,250,.28);
+  width: 120px;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 .login-hero h1, .section-header h2, .app-title, .card-head h3, .profile-top h3 { margin: 0; }
 .login-hero p, .section-header p, .drawer-header p, .muted { color: var(--muted); margin: 6px 0 0; line-height: 1.7; }
