@@ -1,1 +1,3 @@
-# Dialect-Translation-Prototype-Arabic
+# مُفصّح اللسان
+
+ارفع الملفات كما هي إلى المستودع ثم فعّل Pages من الفرع `main` والمجلد `root`.

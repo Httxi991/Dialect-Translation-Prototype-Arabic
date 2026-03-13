@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#5B7CFA" />
+  <title>مُفصّح اللسان</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="phone-shell" aria-label="مُفصّح اللسان">
+    <div class="phone-notch"></div>
+
+    <section class="screen screen-login active" id="loginScreen">
+      <div class="status-bar">
+        <span>9:41</span>
+        <div class="status-icons"><span>📶</span><span>🔋</span></div>
+      </div>
+
+      <div class="login-wrap">
+        <div class="login-hero">
+          <div class="hero-logo">ف</div>
+          <div>
+            <h1>مُفصّح اللسان</h1>
+            <p>تعلم الفصحى بأسلوب ممتع وواضح</p>
+          </div>
+        </div>
+
+        <article class="glass card-pad stack-gap login-card">
+          <div class="mini-head">
+            <span class="section-tag">تسجيل الدخول</span>
+            <span class="soft-chip">طلاب</span>
+          </div>
+
+          <label>اسم الطالب</label>
+          <input id="studentNameInput" type="text" value="ناصر" />
+
+          <label>المدرسة</label>
+          <input id="studentSchoolInput" type="text" value="المدرسة الأمريكية للإبداع العلمي." />
+
+          <label>الصف</label>
+          <input id="studentGradeInput" type="text" value="الصف التاسع" />
+
+          <label>كلمة المرور</label>
+          <input type="password" value="12345678" />
+
+          <button class="primary-btn" id="enterAppBtn">دخول</button>
+        </article>
+
+        <div class="login-footer-pills">
+          <span class="mini-pill">تحويل</span>
+          <span class="mini-pill">اختبارات</span>
+          <span class="mini-pill">جوائز</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen screen-app" id="appScreen">
+      <div class="status-bar app-status">
+        <button class="icon-btn" id="menuBtn">☰</button>
+        <div class="top-title-wrap">
+          <span class="app-title" id="activeTitle">التحويل</span>
+          <small id="pointsBadgeTop">⭐ 21</small>
+        </div>
+        <button class="icon-btn" id="scrollTopBtn">↑</button>
+      </div>
+
+      <div class="drawer-overlay" id="drawerOverlay"></div>
+      <aside class="drawer" id="drawer">
+        <div class="drawer-header">
+          <div>
+            <div class="avatar" id="drawerAvatar">ن</div>
+            <h3 id="studentNameLabel">ناصر</h3>
+            <p id="studentSchoolLabel">المدرسة الأمريكية للإبداع العلمي.</p>
+          </div>
+          <button class="close-drawer" id="closeDrawer">×</button>
+        </div>
+
+        <nav class="drawer-nav">
+          <button class="nav-item active" data-section="convert">التحويل</button>
+          <button class="nav-item" data-section="tests">الاختبارات</button>
+          <button class="nav-item" data-section="games">الألعاب</button>
+          <button class="nav-item" data-section="challenges">التحديات</button>
+          <button class="nav-item" data-section="progress">التقدم</button>
+          <button class="nav-item" data-section="laugh">اضحك مع الفصحى</button>
+          <button class="nav-item" data-section="adab">أدبنا الفصيح</button>
+          <button class="nav-item" data-section="expression">نافذة التعبير</button>
+          <button class="nav-item" data-section="prizes">الجوائز + الألقاب</button>
+          <button class="nav-item" data-section="profile">البروفايل</button>
+          <button class="nav-item" data-section="settings">الإعدادات</button>
+        </nav>
+      </aside>
+
+      <div class="content-scroll" id="contentScroll">
+        <section class="view active" data-view="convert">
+          <div class="section-header">
+            <span class="section-tag">التحويل</span>
+            <h2>من اللهجة إلى الفصحى</h2>
+            <p class="muted">اكتب الجملة، واختر المستوى، وشاهد الصياغة والشرح.</p>
+          </div>
+
+          <article class="glass card-pad stack-gap">
+            <div class="two-col compact-grid">
+              <div>
+                <label>اللهجة</label>
+                <select id="dialectSelect"></select>
+              </div>
+              <div>
+                <label>المستوى</label>
+                <select id="convertLevelSelect">
+                  <option>مباشر</option>
+                  <option>رشيق</option>
+                  <option>محسّن</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="chips-row" id="dialectExamples"></div>
+
+            <label>المدخل</label>
+            <textarea id="dialectInput">أبغي أروح الحين وأعرف وش السالفة</textarea>
+
+            <div class="btn-row wrap-row">
+              <button class="ghost-btn">🎙️ بدء التسجيل</button>
+              <button class="primary-btn" id="convertBtn">تحويل</button>
+              <button class="ghost-btn">🔊 تشغيل الفصحى</button>
+            </div>
+
+            <div class="result-box">
+              <span>الفصحى</span>
+              <p id="convertResult">أريد أن أذهب الآن وأعرف ما الخبر.</p>
+            </div>
+
+            <div class="stack-gap">
+              <div class="small-title">شرح الاختيار</div>
+              <div class="explain-box" id="convertExplain"></div>
+            </div>
+
+            <div class="stack-gap">
+              <div class="small-title">إبراز التغييرات</div>
+              <div class="diff-box" id="convertDiff"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="view" data-view="tests">
+          <div class="section-header">
+            <span class="section-tag">الاختبارات</span>
+            <h2>مبتدئ • متوسط • متقدم</h2>
+            <p class="muted">ابدأ الاختبار، اختر الإجابة، ثم راقب نتيجتك.</p>
+          </div>
+
+          <div class="level-switch" id="testLevelSwitch">
+            <button class="level-btn active" data-level="مبتدئ">مبتدئ</button>
+            <button class="level-btn" data-level="متوسط">متوسط</button>
+            <button class="level-btn" data-level="متقدم">متقدم</button>
+          </div>
+
+          <article class="glass card-pad stack-gap">
+            <div class="btn-row">
+              <button class="primary-btn" id="startTestBtn">بدء الاختبار</button>
+              <span class="soft-chip" id="testProgressChip">0 / 0</span>
+            </div>
+
+            <h3 id="quizQuestion">اضغط على بدء الاختبار.</h3>
+            <div class="answer-list" id="answerList"></div>
+            <div class="feedback-box" id="quizFeedback">شرح الإجابة يظهر هنا.</div>
+            <div class="progress-track"><i id="testProgressBar"></i></div>
+            <button class="ghost-btn" id="nextQuestionBtn">التالي</button>
+          </article>
+        </section>
+
+        <section class="view" data-view="games">
+          <div class="section-header">
+            <span class="section-tag">الألعاب</span>
+            <h2>تعلم باللعب</h2>
+            <p class="muted">لعبتان من ملفك الأصلي: طابق الكلمة ورتّب الجملة.</p>
+          </div>
+
+          <div class="stack">
+            <article class="glass card-pad stack-gap">
+              <div class="card-head">
+                <h3>لعبة: طابق الكلمة</h3>
+                <span class="soft-chip" id="game1Stats">0 | أفضل 0</span>
+              </div>
+              <div class="result-box slim-box">
+                <span>السؤال</span>
+                <p id="game1Prompt">اضغط سؤال جديد.</p>
+              </div>
+              <div class="answer-list" id="game1Choices"></div>
+              <div class="btn-row">
+                <button class="ghost-btn" id="game1NewBtn">سؤال جديد</button>
+                <button class="primary-btn" id="game1CheckBtn">تحقق</button>
+              </div>
+              <div class="feedback-box" id="game1Feedback"></div>
+            </article>
+
+            <article class="glass card-pad stack-gap">
+              <div class="card-head">
+                <h3>لعبة: رتّب الجملة</h3>
+                <span class="soft-chip" id="game2Stats">0 | أفضل 0</span>
+              </div>
+              <div class="result-box slim-box">
+                <span>الكلمات</span>
+                <p id="game2Prompt">اضغط سؤال جديد.</p>
+              </div>
+              <input id="game2Answer" type="text" placeholder="اكتب الجملة مرتبة" />
+              <div class="btn-row">
+                <button class="ghost-btn" id="game2NewBtn">سؤال جديد</button>
+                <button class="primary-btn" id="game2CheckBtn">تحقق</button>
+              </div>
+              <div class="feedback-box" id="game2Feedback"></div>
+            </article>
+          </div>
+        </section>
+
+        
+<section class="view" data-view="challenges">
+  <div class="section-header">
+    <span class="section-tag">التحديات</span>
+    <h2>يومية وأسبوعية</h2>
+    <p class="muted">مهام قصيرة تحفز الطالب على الاستمرار بدون تعقيد.</p>
+  </div>
+
+  <div class="stats-mini-grid challenge-mini-grid">
+    <div class="mini-stat"><strong id="dailyDoneCount">0</strong><span>منجزة اليوم</span></div>
+    <div class="mini-stat"><strong id="weeklyTaskCount">0/4</strong><span>مسار الأسبوع</span></div>
+  </div>
+
+  <div class="stack">
+    <article class="glass card-pad challenge-card">
+      <div class="card-head">
+        <h3>تحدي اليوم</h3>
+        <span class="soft-chip">+2</span>
+      </div>
+      <p>حوّل جملة عامية إلى فصحى سليمة وواضحة.</p>
+      <div class="chips-row helper-row">
+        <span class="helper-chip">ابدأ بفعل واضح</span>
+        <span class="helper-chip">بدّل كلمة عامية بكلمة فصيحة</span>
+      </div>
+      <input id="challengeInput" type="text" placeholder="اكتب جملتك هنا" />
+      <button class="primary-btn" id="challengeBtn">تحقق</button>
+      <div class="feedback-box" id="challengeFeedback"></div>
+    </article>
+
+    <article class="glass card-pad challenge-card week-card">
+      <div class="card-head">
+        <h3>تحدي الأسبوع</h3>
+        <span class="soft-chip">+8</span>
+      </div>
+      <p>أنهِ أربع خطوات موزعة على الأسبوع حتى تفتح المكافأة.</p>
+      <div class="task-list" id="weeklyTaskList"></div>
+      <button class="primary-btn" id="weeklyChallengeBtn">استلام مكافأة الأسبوع</button>
+      <div class="feedback-box" id="weeklyChallengeFeedback"></div>
+    </article>
+  </div>
+</section>
+
+        <section class="view" data-view="progress">
+          <div class="section-header">
+            <span class="section-tag">التقدم</span>
+            <h2>مقارنة نتائجك</h2>
+            <p class="muted">اختر المستوى لرؤية محاولاتك ونسبة التطور.</p>
+          </div>
+
+          <article class="glass card-pad stack-gap">
+            <div class="two-col compact-grid">
+              <div>
+                <label>المستوى</label>
+                <select id="progressLevelSelect">
+                  <option>مبتدئ</option>
+                  <option>متوسط</option>
+                  <option>متقدم</option>
+                </select>
+              </div>
+              <div class="stats-mini-grid">
+                <div class="mini-stat"><strong id="progressPoints">21</strong><span>نقطة</span></div>
+                <div class="mini-stat"><strong id="progressBadges">0</strong><span>ألقاب</span></div>
+              </div>
+            </div>
+
+            <button class="primary-btn" id="showProgressBtn">عرض النتائج</button>
+            <div class="stack-gap" id="progressResults"></div>
+            <div class="bars" id="progressBars"></div>
+          </article>
+        </section>
+
+
+<section class="view" data-view="laugh">
+  <div class="section-header">
+    <span class="section-tag">اضحك مع الفصحى</span>
+    <h2>اكتبها بطرافة أنظف</h2>
+    <p class="muted">اكتب موقفًا لطيفًا أو عبارة خفيفة، ثم حوّلها إلى فصحى مرحة ومناسبة للطلاب.</p>
+  </div>
+
+  <article class="glass card-pad stack-gap">
+    <div class="two-col compact-grid">
+      <div>
+        <label>أسلوب الطرافة</label>
+        <select id="laughModeSelect">
+          <option>خفيف ومباشر</option>
+          <option>مدرسي لطيف</option>
+          <option>ذكي وسريع</option>
+        </select>
+      </div>
+      <div>
+        <label>الهدف</label>
+        <div class="notice-card small-note">فكاهة واضحة بدون مبالغة أو ألفاظ عامية ثقيلة.</div>
+      </div>
+    </div>
+
+    <label>النص</label>
+    <textarea id="laughInput" rows="6" placeholder="اكتب موقفًا أو عبارة عامية لطيفة..."></textarea>
+
+    <div class="btn-row wrap-row">
+      <button class="primary-btn" id="convertJokeBtn">صياغة مرحة</button>
+      <span class="soft-chip" id="jokeToneChip">خفيف ومباشر</span>
+    </div>
+    <div class="result-box"><span>الناتج</span><p id="jokeResult"></p></div>
+    <div class="feedback-box" id="jokeExplain"></div>
+  </article>
+</section>
+
+
+<section class="view" data-view="adab">
+  <div class="section-header">
+    <span class="section-tag">أدبنا الفصيح</span>
+    <h2>اكتب نصك بصياغة أدبية</h2>
+    <p class="muted">مساحة كتابة حرة تساعد الطالب على تهذيب النص وجعله أجمل وأفصح.</p>
+  </div>
+
+  <article class="glass card-pad stack-gap">
+    <div class="two-col compact-grid">
+      <div>
+        <label>نوع النص</label>
+        <select id="adabTypeSelect">
+          <option>قصة قصيرة</option>
+          <option>خاطرة</option>
+          <option>وصف</option>
+          <option>مثل أو حكمة</option>
+        </select>
+      </div>
+      <div>
+        <label>الطابع</label>
+        <select id="adabStyleSelect">
+          <option>واضح</option>
+          <option>أدبي</option>
+          <option>أقوى تعبيرًا</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="notice-card" id="adabGuide"></div>
+    <label>النص</label>
+    <textarea id="adabText" rows="8" placeholder="اكتب نصك هنا..."></textarea>
+
+    <div class="btn-row wrap-row">
+      <button class="ghost-btn" id="saveStoryBtn">حفظ النص</button>
+      <button class="primary-btn" id="adabConvertBtn">تهذيب النص</button>
+    </div>
+  </article>
+</section>
+
+        
+<section class="view" data-view="expression">
+  <div class="section-header">
+    <span class="section-tag">نافذة التعبير</span>
+    <h2>مباشر • مجازي • بلاغي</h2>
+    <p class="muted">جرّب أكثر من أسلوب لتقوية الكتابة الشفوية والكتابية.</p>
+  </div>
+
+  <article class="glass card-pad stack-gap">
+    <div class="chips-row helper-row" id="expressionPresets">
+      <button class="helper-chip helper-chip-btn" data-expression-preset="أريد أن أشرح فكرتي بسهولة.">شرح فكرة</button>
+      <button class="helper-chip helper-chip-btn" data-expression-preset="أنا سعيد لأنني أنجزت واجبي.">مشاعر</button>
+      <button class="helper-chip helper-chip-btn" data-expression-preset="أحتاج إلى تنظيم وقتي للدراسة.">تنظيم الوقت</button>
+    </div>
+
+    <label>الأسلوب</label>
+    <select id="expressionModeSelect">
+      <option>فصيح مباشر</option>
+      <option>فصيح مجازي</option>
+      <option>بلاغي</option>
+    </select>
+
+    <label>النص</label>
+    <textarea id="expressionInput">أنا مرة حزين</textarea>
+
+    <button class="primary-btn" id="expressionBtn">تحويل</button>
+    <div class="result-box"><span>الناتج</span><p id="expressionResult"></p></div>
+    <div class="feedback-box" id="expressionHint"></div>
+  </article>
+</section>
+
+        <section class="view" data-view="prizes">
+          <div class="section-header">
+            <span class="section-tag">الجوائز + الألقاب</span>
+            <h2>تحفيز الطالب</h2>
+            <p class="muted">اشترِ جائزة تعليمية وحدّث ألقابك حسب نقاطك.</p>
+          </div>
+
+          <div class="stack" id="prizesList"></div>
+
+          <article class="glass card-pad stack-gap">
+            <div class="card-head">
+              <h3>الألقاب</h3>
+              <button class="primary-btn small-btn" id="claimTitlesBtn">تحديث الألقاب</button>
+            </div>
+            <div class="chips-wrap" id="titlesList"></div>
+            <div class="feedback-box" id="titleFeedback"></div>
+          </article>
+        </section>
+
+        
+<section class="view" data-view="profile">
+  <div class="section-header">
+    <span class="section-tag">البروفايل</span>
+    <h2>ملف الطالب</h2>
+    <p class="muted">رتّب معلوماتك الدراسية وتابع تقدمك ولقبك الحالي.</p>
+  </div>
+
+  <article class="glass card-pad stack-gap">
+    <div class="profile-top">
+      <div class="avatar large-avatar" id="profileAvatar">ن</div>
+      <div>
+        <h3 id="profileName">ناصر</h3>
+        <p id="profileSchoolGrade">المدرسة الأمريكية للإبداع العلمي. • الصف التاسع</p>
+      </div>
+      <div class="soft-chip title-badge" id="profileCurrentTitle">فصيح ناشئ</div>
+    </div>
+
+    <div class="two-col compact-grid">
+      <div>
+        <label>الاسم</label>
+        <input id="profileNameInput" type="text" />
+      </div>
+      <div>
+        <label>الأيقونة</label>
+        <input id="profileAvatarInput" type="text" maxlength="2" />
+      </div>
+      <div>
+        <label>المدرسة</label>
+        <input id="profileSchoolInput" type="text" />
+      </div>
+      <div>
+        <label>الصف</label>
+        <input id="profileGradeInput" type="text" />
+      </div>
+    </div>
+
+    <div class="setting-row no-border">
+      <div>
+        <strong>وضع الحساب</strong>
+        <p>اختر وضعك الحالي داخل التطبيق.</p>
+      </div>
+      <select id="profileModeSelect">
+        <option>غير متصل</option>
+        <option>متصل</option>
+      </select>
+    </div>
+
+    <div class="btn-row wrap-row">
+      <button class="primary-btn" id="saveProfileBtn">حفظ البيانات</button>
+      <button class="ghost-btn" id="syncProfileBtn">تحديث سريع</button>
+    </div>
+
+    <div class="profile-stats">
+      <div><strong id="profilePoints">21</strong><span>نقطة</span></div>
+      <div><strong id="profileTestCount">0</strong><span>اختبارات</span></div>
+      <div><strong id="profileGameBest">0</strong><span>أفضل لعبة</span></div>
+    </div>
+
+    <div>
+      <div class="small-title">الألقاب المفتوحة</div>
+      <div class="chips-wrap" id="profileTitlesList"></div>
+    </div>
+  </article>
+</section>
+
+        
+<section class="view" data-view="settings">
+  <div class="section-header">
+    <span class="section-tag">الإعدادات</span>
+    <h2>خيارات الاستخدام</h2>
+    <p class="muted">إعدادات خفيفة تساعد الطالب على الدراسة بشكل أوضح.</p>
+  </div>
+
+  <article class="glass card-pad stack-gap">
+    <div class="two-col compact-grid">
+      <div>
+        <label>اللهجة</label>
+        <select id="settingsDialectSelect"></select>
+      </div>
+      <div>
+        <label>المستوى</label>
+        <select id="settingsLevelSelect">
+          <option>مباشر</option>
+          <option>رشيق</option>
+          <option>محسّن</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <div>
+        <strong>الإخراج الصوتي</strong>
+        <p>تشغيل النص الفصيح بصوت واضح.</p>
+      </div>
+      <select id="settingsVoiceSelect">
+        <option>محلي</option>
+        <option>هادئ</option>
+      </select>
+    </div>
+
+    <div class="setting-row">
+      <div>
+        <strong>تنبيهات التحديات</strong>
+        <p>تذكير يومي قصير للتحديات.</p>
+      </div>
+      <select id="settingsReminderSelect">
+        <option>مفعّل</option>
+        <option>متوقف</option>
+      </select>
+    </div>
+
+    <div class="setting-row no-border">
+      <div>
+        <strong>وضع القراءة</strong>
+        <p>اختيار أسلوب عرض أبسط أو أغنى.</p>
+      </div>
+      <select id="settingsReadingModeSelect">
+        <option>واضح</option>
+        <option>غني بالمفردات</option>
+      </select>
+    </div>
+
+    <div class="notice-card">عند انقطاع الشبكة يبقى المحتوى الدراسي الأساسي متاحًا.</div>
+    <button class="primary-btn" id="testConnectionBtn">فحص الاتصال</button>
+    <div class="feedback-box" id="connectionResult"></div>
+  </article>
+</section>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
